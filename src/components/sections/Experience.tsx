@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiBriefcase, FiCalendar, FiMapPin } from 'react-icons/fi';
+import { EXPERIENCE_DATA } from '../../constants/experienceInfo';
 
 const ExperienceSection = styled.section`
   background-color: var(--background);
@@ -191,47 +192,6 @@ const JobResponsibility = styled.li`
 `;
 
 const Experience: React.FC = () => {
-  const experiences = [
-    {
-      id: 1,
-      company: 'Tech Innovators',
-      title: 'Senior Software Engineer',
-      period: 'Jan 2022 - Present',
-      location: 'Bengaluru, India',
-      responsibilities: [
-        'Led a team of 5 developers in building a scalable e-commerce platform using React, Node.js, and MongoDB',
-        'Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 40%',
-        'Optimized application performance, resulting in a 30% improvement in page load times',
-        'Mentored junior developers and conducted code reviews to ensure code quality and best practices'
-      ]
-    },
-    {
-      id: 2,
-      company: 'Digital Solutions Inc.',
-      title: 'Frontend Developer',
-      period: 'Mar 2020 - Dec 2021',
-      location: 'Hyderabad, India',
-      responsibilities: [
-        'Developed responsive web applications using React, Redux, and TypeScript',
-        'Collaborated with UX/UI designers to implement pixel-perfect designs',
-        'Integrated RESTful APIs and implemented state management solutions',
-        'Participated in agile development processes, including daily stand-ups and sprint planning'
-      ]
-    },
-    {
-      id: 3,
-      company: 'WebTech Startup',
-      title: 'Junior Web Developer',
-      period: 'Jun 2018 - Feb 2020',
-      location: 'Pune, India',
-      responsibilities: [
-        'Built and maintained client websites using HTML, CSS, JavaScript, and jQuery',
-        'Assisted in the development of a content management system using PHP and MySQL',
-        'Implemented responsive designs and ensured cross-browser compatibility',
-        'Collaborated with the marketing team to optimize websites for SEO'
-      ]
-    }
-  ];
   
   return (
     <ExperienceSection id="experience">
@@ -242,7 +202,7 @@ const Experience: React.FC = () => {
         </SectionSubtitle>
         
         <TimelineContainer>
-          {experiences.map((exp, index) => (
+          {EXPERIENCE_DATA.map((exp, index) => (
             <TimelineItem 
               key={exp.id}
               isLeft={index % 2 === 0}
@@ -258,7 +218,7 @@ const Experience: React.FC = () => {
                   </CompanyLogo>
                   <CompanyInfo>
                     <CompanyName>{exp.company}</CompanyName>
-                    <JobTitle>{exp.title}</JobTitle>
+                    <JobTitle>{exp.position}</JobTitle>
                   </CompanyInfo>
                 </TimelineHeader>
                 
@@ -275,9 +235,10 @@ const Experience: React.FC = () => {
                 
                 <JobDescription>
                   <ul>
-                    {exp.responsibilities.map((responsibility, idx) => (
+                    <p>{exp.description}</p>
+                    {exp.achievements.map((achievement, idx) => (
                       <JobResponsibility key={idx}>
-                        {responsibility}
+                        {achievement}
                       </JobResponsibility>
                     ))}
                   </ul>

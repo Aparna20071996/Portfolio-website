@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend } from 'react-icons/fi';
+import { FiMail, FiPhone, FiMapPin, FiSend, FiLock } from 'react-icons/fi';
+import { PERSONAL_INFO } from '../../constants/personalInfo';
 
 const ContactSection = styled.section`
   background-color: var(--background);
@@ -276,8 +277,8 @@ const Contact: React.FC = () => {
               </IconBox>
               <ContactCardContent>
                 <ContactCardTitle>Email</ContactCardTitle>
-                <ContactCardLink href="mailto:aparna.kesharwani@example.com">
-                  aparna.kesharwani@example.com
+                <ContactCardLink href={`mailto:${PERSONAL_INFO.email}`}>
+                  {PERSONAL_INFO.email}
                 </ContactCardLink>
               </ContactCardContent>
             </ContactCard>
@@ -289,13 +290,17 @@ const Contact: React.FC = () => {
               viewport={{ once: true }}
             >
               <IconBox>
-                {FiPhone({})}
+                {PERSONAL_INFO.phone ? FiPhone({}) : FiLock({})}
               </IconBox>
               <ContactCardContent>
                 <ContactCardTitle>Phone</ContactCardTitle>
-                <ContactCardLink href="tel:+919876543210">
-                  +91 9876543210
-                </ContactCardLink>
+                {PERSONAL_INFO.phone ? (
+                  <ContactCardLink href={`tel:${PERSONAL_INFO.phone}`}>
+                    {PERSONAL_INFO.phone}
+                  </ContactCardLink>
+                ) : (
+                  <ContactCardText>Available on request</ContactCardText>
+                )}
               </ContactCardContent>
             </ContactCard>
             
@@ -311,7 +316,7 @@ const Contact: React.FC = () => {
               <ContactCardContent>
                 <ContactCardTitle>Location</ContactCardTitle>
                 <ContactCardText>
-                  Bengaluru, Karnataka, India
+                  {PERSONAL_INFO.location}
                 </ContactCardText>
               </ContactCardContent>
             </ContactCard>

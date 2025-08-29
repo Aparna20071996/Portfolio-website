@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { HashLink } from 'react-router-hash-link';
-import { FiGithub, FiLinkedin, FiDownload } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiDownload, FiTwitter, FiInstagram, FiFacebook } from 'react-icons/fi';
+import { SiHackerrank, SiLeetcode, SiStackoverflow } from 'react-icons/si';
+import { PERSONAL_INFO } from '../../constants/personalInfo';
 
 const HeroSection = styled.section`
   min-height: 100vh;
@@ -324,8 +326,8 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <Greeting>Hello, I'm</Greeting>
-          <HeroTitle>Aparna Kesharwani</HeroTitle>
-          <HeroSubtitle>Software Developer</HeroSubtitle>
+          <HeroTitle>{PERSONAL_INFO.name}</HeroTitle>
+          <HeroSubtitle>{PERSONAL_INFO.title}</HeroSubtitle>
           <HeroDescription>
             A passionate software developer specializing in creating beautiful and functional web applications. I love turning complex problems into simple, elegant solutions.
           </HeroDescription>
@@ -339,7 +341,8 @@ const Hero: React.FC = () => {
               Get In Touch
             </PrimaryButton>
             <SecondaryButton 
-              href="/resume.pdf"
+              as="a"
+              href={PERSONAL_INFO.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -349,22 +352,86 @@ const Hero: React.FC = () => {
             </SecondaryButton>
           </ButtonGroup>
           <SocialLinks>
-            <SocialIcon 
-              href="https://github.com/aparna20071996"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5 }}
-            >
-              {FiGithub({})}
-            </SocialIcon>
-            <SocialIcon 
-              href="https://linkedin.com/in/aparnakesharwani"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ y: -5 }}
-            >
-              {FiLinkedin({})}
-            </SocialIcon>
+            {PERSONAL_INFO.social.github && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {FiGithub({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.linkedin && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {FiLinkedin({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.twitter && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {FiTwitter({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.hackerrank && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.hackerrank}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {SiHackerrank({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.leetcode && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.leetcode}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {SiLeetcode({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.stackoverflow && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.stackoverflow}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {SiStackoverflow({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.instagram && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {FiInstagram({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.facebook && (
+              <SocialIcon 
+                href={PERSONAL_INFO.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -5 }}
+              >
+                {FiFacebook({})}
+              </SocialIcon>
+            )}
           </SocialLinks>
         </HeroContent>
         <HeroImageContainer

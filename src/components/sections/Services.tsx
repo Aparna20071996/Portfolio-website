@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FiCode, FiLayout, FiServer, FiDatabase, FiSmartphone, FiShield } from 'react-icons/fi';
+import { SERVICES_DATA } from '../../constants/servicesInfo';
 
 const ServicesSection = styled.section`
   background-color: var(--card-bg);
@@ -181,89 +181,7 @@ const ServiceFeature = styled.li`
   }
 `;
 
-interface Service {
-  id: number;
-  icon: any;
-  title: string;
-  description: string;
-  features: string[];
-}
-
 const Services: React.FC = () => {
-  const services: Service[] = [
-    {
-      id: 1,
-      icon: FiLayout,
-      title: 'Frontend Development',
-      description: 'Creating responsive, interactive, and visually appealing user interfaces that provide an exceptional user experience.',
-      features: [
-        'Responsive web design',
-        'Interactive UI/UX',
-        'Single Page Applications',
-        'Cross-browser compatibility'
-      ]
-    },
-    {
-      id: 2,
-      icon: FiServer,
-      title: 'Backend Development',
-      description: 'Building robust server-side applications and APIs that power your web applications with efficiency and security.',
-      features: [
-        'RESTful API development',
-        'Database integration',
-        'Authentication & authorization',
-        'Performance optimization'
-      ]
-    },
-    {
-      id: 3,
-      icon: FiCode,
-      title: 'Full Stack Development',
-      description: 'End-to-end development of web applications, from the user interface to the server-side logic and database management.',
-      features: [
-        'Complete web solutions',
-        'Seamless integration',
-        'Consistent development approach',
-        'Efficient project delivery'
-      ]
-    },
-    {
-      id: 4,
-      icon: FiSmartphone,
-      title: 'Responsive Web Design',
-      description: 'Creating websites that look and function perfectly on all devices, from desktops to smartphones and tablets.',
-      features: [
-        'Mobile-first approach',
-        'Adaptive layouts',
-        'Touch-friendly interfaces',
-        'Optimized performance'
-      ]
-    },
-    {
-      id: 5,
-      icon: FiDatabase,
-      title: 'Database Design',
-      description: 'Designing and implementing efficient database structures that ensure data integrity, security, and optimal performance.',
-      features: [
-        'Schema design',
-        'Query optimization',
-        'Data migration',
-        'NoSQL & SQL databases'
-      ]
-    },
-    {
-      id: 6,
-      icon: FiShield,
-      title: 'Web Security',
-      description: 'Implementing robust security measures to protect your web applications from common vulnerabilities and threats.',
-      features: [
-        'Security audits',
-        'Authentication systems',
-        'Data encryption',
-        'OWASP compliance'
-      ]
-    }
-  ];
   
   return (
     <ServicesSection id="services">
@@ -274,7 +192,7 @@ const Services: React.FC = () => {
         </SectionSubtitle>
         
         <ServicesGrid>
-          {services.map((service, index) => (
+          {SERVICES_DATA.map((service, index) => (
             <ServiceCard
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
@@ -283,7 +201,7 @@ const Services: React.FC = () => {
               viewport={{ once: true }}
             >
               <ServiceIcon>
-                {React.createElement(service.icon)}
+                {service.icon({})}
               </ServiceIcon>
               <ServiceTitle>{service.title}</ServiceTitle>
               <ServiceDescription>{service.description}</ServiceDescription>

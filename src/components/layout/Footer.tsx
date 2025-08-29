@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiInstagram, FiFacebook } from 'react-icons/fi';
+import { SiHackerrank, SiLeetcode, SiStackoverflow } from 'react-icons/si';
+import { PERSONAL_INFO } from '../../constants/personalInfo';
 
 const FooterContainer = styled.footer`
   background-color: var(--card-bg);
@@ -124,19 +126,50 @@ const Footer: React.FC = () => {
     <FooterContainer>
       <FooterContent>
         <FooterSection>
-          <FooterLogo to="/">Aparna.dev</FooterLogo>
+          <FooterLogo to="/">{PERSONAL_INFO.name.split(' ')[0]}.dev</FooterLogo>
           <p>A passionate software developer from India, specializing in creating beautiful and functional web applications.</p>
           <SocialLinks>
-            <SocialIcon href="https://github.com/aparnakesharwani" target="_blank" rel="noopener noreferrer">
-              {FiGithub({})}
-            </SocialIcon>
-            <SocialIcon href="https://linkedin.com/in/aparnakesharwani" target="_blank" rel="noopener noreferrer">
-              {FiLinkedin({})}
-            </SocialIcon>
-            <SocialIcon href="https://twitter.com/aparnakesharwani" target="_blank" rel="noopener noreferrer">
-              {FiTwitter({})}
-            </SocialIcon>
-            <SocialIcon href="mailto:aparna.kesharwani@example.com">
+            {PERSONAL_INFO.social.github && (
+              <SocialIcon href={PERSONAL_INFO.social.github} target="_blank" rel="noopener noreferrer">
+                {FiGithub({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.linkedin && (
+              <SocialIcon href={PERSONAL_INFO.social.linkedin} target="_blank" rel="noopener noreferrer">
+                {FiLinkedin({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.twitter && (
+              <SocialIcon href={PERSONAL_INFO.social.twitter} target="_blank" rel="noopener noreferrer">
+                {FiTwitter({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.hackerrank && (
+              <SocialIcon href={PERSONAL_INFO.social.hackerrank} target="_blank" rel="noopener noreferrer">
+                {SiHackerrank({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.leetcode && (
+              <SocialIcon href={PERSONAL_INFO.social.leetcode} target="_blank" rel="noopener noreferrer">
+                {SiLeetcode({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.stackoverflow && (
+              <SocialIcon href={PERSONAL_INFO.social.stackoverflow} target="_blank" rel="noopener noreferrer">
+                {SiStackoverflow({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.instagram && (
+              <SocialIcon href={PERSONAL_INFO.social.instagram} target="_blank" rel="noopener noreferrer">
+                {FiInstagram({})}
+              </SocialIcon>
+            )}
+            {PERSONAL_INFO.social.facebook && (
+              <SocialIcon href={PERSONAL_INFO.social.facebook} target="_blank" rel="noopener noreferrer">
+                {FiFacebook({})}
+              </SocialIcon>
+            )}
+            <SocialIcon href={`mailto:${PERSONAL_INFO.email}`}>
               {FiMail({})}
             </SocialIcon>
           </SocialLinks>
@@ -161,14 +194,14 @@ const Footer: React.FC = () => {
         
         <FooterSection>
           <FooterTitle>Contact Info</FooterTitle>
-          <p>Email: aparna.kesharwani@example.com</p>
-          <p>Location: Bengaluru, India</p>
+          <p>Email: {PERSONAL_INFO.email}</p>
+          <p>Location: {PERSONAL_INFO.location}</p>
           <p>Freelance: Available</p>
         </FooterSection>
       </FooterContent>
       
       <Copyright>
-        <p>&copy; {new Date().getFullYear()} Aparna Kesharwani. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.</p>
         <p>Designed & Developed with ❤️</p>
       </Copyright>
     </FooterContainer>
