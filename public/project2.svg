@@ -1,0 +1,33 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A1929"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="400" cy="300" r="200" fill="#6C63FF" opacity="0.1"/>
+  <circle cx="400" cy="300" r="150" fill="#6C63FF" opacity="0.15"/>
+  <circle cx="400" cy="300" r="100" fill="#6C63FF" opacity="0.2"/>
+  
+  <!-- Task Management Board -->
+  <rect x="200" y="150" width="400" height="300" rx="10" fill="#6C63FF" opacity="0.8"/>
+  
+  <!-- Task Columns -->
+  <rect x="220" y="180" width="110" height="250" rx="5" fill="white" opacity="0.9"/>
+  <rect x="345" y="180" width="110" height="250" rx="5" fill="white" opacity="0.9"/>
+  <rect x="470" y="180" width="110" height="250" rx="5" fill="white" opacity="0.9"/>
+  
+  <!-- Task Cards -->
+  <rect x="230" y="210" width="90" height="60" rx="5" fill="#FF6584" opacity="0.8"/>
+  <rect x="230" y="280" width="90" height="60" rx="5" fill="#FF6584" opacity="0.8"/>
+  <rect x="355" y="210" width="90" height="60" rx="5" fill="#FF6584" opacity="0.8"/>
+  <rect x="480" y="210" width="90" height="60" rx="5" fill="#FF6584" opacity="0.8"/>
+  <rect x="480" y="280" width="90" height="60" rx="5" fill="#FF6584" opacity="0.8"/>
+  
+  <!-- Column Headers -->
+  <rect x="220" y="180" width="110" height="20" rx="5" fill="#6C63FF"/>
+  <rect x="345" y="180" width="110" height="20" rx="5" fill="#6C63FF"/>
+  <rect x="470" y="180" width="110" height="20" rx="5" fill="#6C63FF"/>
+  
+  <!-- Project Title -->
+  <rect x="250" y="500" width="300" height="40" rx="5" fill="#6C63FF" opacity="0.8"/>
+  <text x="400" y="525" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Task Management App</text>
+</svg>

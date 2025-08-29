@@ -1,0 +1,40 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A1929" opacity="0.05"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="400" cy="300" r="250" fill="#6C63FF" opacity="0.1"/>
+  <circle cx="400" cy="300" r="200" fill="#6C63FF" opacity="0.15"/>
+  <circle cx="400" cy="300" r="150" fill="#6C63FF" opacity="0.2"/>
+  
+  <!-- Developer Illustration -->
+  <!-- Person -->
+  <circle cx="400" cy="200" r="70" fill="#6C63FF" opacity="0.8"/>
+  <path d="M400 280C355.817 280 320 315.817 320 360V450H480V360C480 315.817 444.183 280 400 280Z" fill="#6C63FF" opacity="0.8"/>
+  
+  <!-- Face Details -->
+  <circle cx="375" cy="185" r="10" fill="white"/>
+  <circle cx="425" cy="185" r="10" fill="white"/>
+  <path d="M380 225C380 225 390 235 400 235C410 235 420 225 420 225" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Code Elements -->
+  <rect x="150" y="150" width="150" height="20" rx="5" fill="#6C63FF" opacity="0.6"/>
+  <rect x="150" y="180" width="120" height="20" rx="5" fill="#6C63FF" opacity="0.6"/>
+  <rect x="150" y="210" width="140" height="20" rx="5" fill="#6C63FF" opacity="0.6"/>
+  
+  <rect x="500" y="150" width="150" height="20" rx="5" fill="#FF6584" opacity="0.6"/>
+  <rect x="530" y="180" width="120" height="20" rx="5" fill="#FF6584" opacity="0.6"/>
+  <rect x="510" y="210" width="140" height="20" rx="5" fill="#FF6584" opacity="0.6"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="200" cy="350" r="30" fill="#6C63FF" opacity="0.6"/>
+  <rect x="550" y="320" width="60" height="60" rx="10" fill="#FF6584" opacity="0.6"/>
+  <polygon points="300,400 330,450 270,450" fill="#6C63FF" opacity="0.6"/>
+  <polygon points="500,400 530,450 470,450" fill="#FF6584" opacity="0.6"/>
+  
+  <!-- Tech Icons -->
+  <circle cx="150" cy="450" r="25" fill="#6C63FF" opacity="0.8"/>
+  <circle cx="650" cy="450" r="25" fill="#FF6584" opacity="0.8"/>
+  <rect x="220" y="425" width="50" height="50" rx="10" fill="#6C63FF" opacity="0.8"/>
+  <rect x="580" y="425" width="50" height="50" rx="10" fill="#FF6584" opacity="0.8"/>
+</svg>
