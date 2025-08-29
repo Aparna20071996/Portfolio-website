@@ -1,6 +1,6 @@
 export const PERSONAL_INFO = {
   name: 'Aparna Kesharwani',
-  title: 'Software Developer',
+  title: 'Senior Software Engineer',
   email: 'aparnakesharwani7@gmail.com',
   phone: '',
   location: 'Pune, Maharashtra, India',

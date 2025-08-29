@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiLock } from 'react-icons/fi';
 import { PERSONAL_INFO } from '../../constants/personalInfo';
+import { submitToGoogleSheets } from '../../utils/googleSheets';
 
 const ContactSection = styled.section`
   background-color: var(--background);
@@ -221,14 +222,16 @@ const Contact: React.FC = () => {
     }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      try {
-        setIsSubmitting(false);
+    try {
+      const success = await submitToGoogleSheets(formData);
+      
+      setIsSubmitting(false);
+      
+      if (success) {
         setFormMessage({
           text: 'Your message has been sent successfully! I will get back to you soon.',
           success: true
@@ -241,19 +244,24 @@ const Contact: React.FC = () => {
           subject: '',
           message: ''
         });
-        
-        // Clear success message after 5 seconds
-        setTimeout(() => {
-          setFormMessage(null);
-        }, 5000);
-      } catch (error) {
-        setIsSubmitting(false);
+      } else {
         setFormMessage({
           text: 'Failed to send message. Please try again.',
           success: false
         });
       }
-    }, 1500);
+      
+      // Clear message after 5 seconds
+      setTimeout(() => {
+        setFormMessage(null);
+      }, 5000);
+    } catch (error) {
+      setIsSubmitting(false);
+      setFormMessage({
+        text: 'Failed to send message. Please try again.',
+        success: false
+      });
+    }
   };
   
   return (
