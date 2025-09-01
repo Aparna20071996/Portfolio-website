@@ -1,0 +1,23 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A1929"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="400" cy="300" r="200" fill="#6C63FF" opacity="0.1"/>
+  <circle cx="400" cy="300" r="150" fill="#6C63FF" opacity="0.15"/>
+  <circle cx="400" cy="300" r="100" fill="#6C63FF" opacity="0.2"/>
+  
+  <!-- Shopping Cart Icon -->
+  <rect x="300" y="250" width="200" height="150" rx="10" fill="#6C63FF" opacity="0.8"/>
+  <circle cx="350" cy="425" r="25" fill="#6C63FF"/>
+  <circle cx="450" cy="425" r="25" fill="#6C63FF"/>
+  
+  <!-- Product Items -->
+  <rect x="325" y="275" width="150" height="20" rx="5" fill="white"/>
+  <rect x="325" y="305" width="150" height="20" rx="5" fill="white"/>
+  <rect x="325" y="335" width="150" height="20" rx="5" fill="white"/>
+  
+  <!-- Project Title -->
+  <rect x="250" y="500" width="300" height="40" rx="5" fill="#6C63FF" opacity="0.8"/>
+  <text x="400" y="525" font-family="Arial" font-size="24" fill="white" text-anchor="middle">E-Commerce Platform</text>
+</svg>

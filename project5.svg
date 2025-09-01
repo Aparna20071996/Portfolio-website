@@ -1,0 +1,40 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A1929"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="400" cy="300" r="200" fill="#6C63FF" opacity="0.1"/>
+  <circle cx="400" cy="300" r="150" fill="#6C63FF" opacity="0.15"/>
+  <circle cx="400" cy="300" r="100" fill="#6C63FF" opacity="0.2"/>
+  
+  <!-- Mobile App Interface -->
+  <rect x="300" y="100" width="200" height="400" rx="20" fill="#6C63FF" opacity="0.8"/>
+  <rect x="310" y="110" width="180" height="380" rx="15" fill="white" opacity="0.9"/>
+  
+  <!-- App Header -->
+  <rect x="310" y="110" width="180" height="50" rx="15" fill="#6C63FF"/>
+  <circle cx="340" cy="135" r="10" fill="white"/>
+  <rect x="360" y="130" width="80" height="10" rx="5" fill="white" opacity="0.9"/>
+  
+  <!-- Weather Icons -->
+  <circle cx="400" cy="200" r="40" fill="#FF6584" opacity="0.8"/>
+  <path d="M380 200 L420 200 M400 180 L400 220" stroke="white" stroke-width="4"/>
+  
+  <!-- Weather Data -->
+  <rect x="330" y="260" width="140" height="20" rx="5" fill="#6C63FF" opacity="0.5"/>
+  <rect x="330" y="290" width="140" height="20" rx="5" fill="#6C63FF" opacity="0.5"/>
+  <rect x="330" y="320" width="140" height="20" rx="5" fill="#6C63FF" opacity="0.5"/>
+  
+  <!-- Forecast Cards -->
+  <rect x="330" y="360" width="30" height="60" rx="5" fill="#6C63FF" opacity="0.5"/>
+  <rect x="370" y="360" width="30" height="60" rx="5" fill="#6C63FF" opacity="0.5"/>
+  <rect x="410" y="360" width="30" height="60" rx="5" fill="#6C63FF" opacity="0.5"/>
+  <rect x="450" y="360" width="30" height="60" rx="5" fill="#6C63FF" opacity="0.5"/>
+  
+  <!-- App Navigation -->
+  <rect x="310" y="450" width="180" height="40" rx="5" fill="#6C63FF" opacity="0.5"/>
+  
+  <!-- Project Title -->
+  <rect x="250" y="520" width="300" height="40" rx="5" fill="#6C63FF" opacity="0.8"/>
+  <text x="400" y="545" font-family="Arial" font-size="24" fill="white" text-anchor="middle">Weather App</text>
+</svg>
