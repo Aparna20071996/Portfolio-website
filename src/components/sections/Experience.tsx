@@ -217,26 +217,30 @@ const Experience: React.FC = () => {
                     {FiBriefcase({})}
                   </CompanyLogo>
                   <CompanyInfo>
-                    <CompanyName>{exp.company}</CompanyName>
-                    <JobTitle>{exp.position}</JobTitle>
+                    {exp.company && <CompanyName>{exp.company}</CompanyName>}
+                    {exp.position && <JobTitle>{exp.position}</JobTitle>}
                   </CompanyInfo>
                 </TimelineHeader>
                 
                 <TimelineDetails>
-                  <TimelineDetailItem>
-                    {FiCalendar({})}
-                    <span>{exp.period}</span>
-                  </TimelineDetailItem>
-                  <TimelineDetailItem>
-                    {FiMapPin({})}
-                    <span>{exp.location}</span>
-                  </TimelineDetailItem>
+                  {exp.period && (
+                    <TimelineDetailItem>
+                      {FiCalendar({})}
+                      <span>{exp.period}</span>
+                    </TimelineDetailItem>
+                  )}
+                  {exp.location && (
+                    <TimelineDetailItem>
+                      {FiMapPin({})}
+                      <span>{exp.location}</span>
+                    </TimelineDetailItem>
+                  )}
                 </TimelineDetails>
                 
                 <JobDescription>
                   <ul>
-                    <p>{exp.description}</p>
-                    {exp.achievements.map((achievement, idx) => (
+                    {exp.description && <p>{exp.description}</p>}
+                    {exp.achievements && exp.achievements.map((achievement, idx) => (
                       <JobResponsibility key={idx}>
                         {achievement}
                       </JobResponsibility>

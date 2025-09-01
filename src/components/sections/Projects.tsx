@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import { PROJECTS_DATA } from '../../constants/projectsInfo';
 
 const ProjectsSection = styled.section`
   background-color: var(--card-bg);
@@ -234,71 +235,11 @@ interface Project {
 const Projects: React.FC = () => {
   const [filter, setFilter] = useState('all');
   
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with product listings, cart functionality, user authentication, and payment integration.',
-      image: process.env.PUBLIC_URL + '/project1.svg',
-      category: 'fullstack',
-      techStack: ['React', 'Node.js', 'Express', 'MongoDB', 'Redux'],
-      liveLink: 'https://example.com',
-      githubLink: 'https://github.com',
-    },
-    {
-      id: 2,
-      title: 'Task Management App',
-      description: 'A productivity application for managing tasks, projects, and deadlines with drag-and-drop functionality.',
-      image: process.env.PUBLIC_URL + '/project2.svg',
-      category: 'frontend',
-      techStack: ['React', 'TypeScript', 'Redux', 'Styled Components'],
-      liveLink: 'https://example.com',
-      githubLink: 'https://github.com',
-    },
-    {
-      id: 3,
-      title: 'Social Media Dashboard',
-      description: 'An analytics dashboard for social media platforms with data visualization and reporting features.',
-      image: process.env.PUBLIC_URL + '/project3.svg',
-      category: 'frontend',
-      techStack: ['React', 'Chart.js', 'Material UI', 'Firebase'],
-      liveLink: 'https://example.com',
-      githubLink: 'https://github.com',
-    },
-    {
-      id: 4,
-      title: 'Blog API',
-      description: 'A RESTful API for a blog platform with authentication, authorization, and CRUD operations.',
-      image: process.env.PUBLIC_URL + '/project4.svg',
-      category: 'backend',
-      techStack: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-      githubLink: 'https://github.com',
-    },
-    {
-      id: 5,
-      title: 'Weather Application',
-      description: 'A weather forecast application that provides real-time weather data and forecasts for locations worldwide.',
-      image: process.env.PUBLIC_URL + '/project5.svg',
-      category: 'frontend',
-      techStack: ['React', 'OpenWeather API', 'CSS Modules'],
-      liveLink: 'https://example.com',
-      githubLink: 'https://github.com',
-    },
-    {
-      id: 6,
-      title: 'Real-time Chat Application',
-      description: 'A real-time messaging platform with private and group chat functionality.',
-      image: process.env.PUBLIC_URL + '/project6.svg',
-      category: 'fullstack',
-      techStack: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      liveLink: 'https://example.com',
-      githubLink: 'https://github.com',
-    },
-  ];
+
   
   const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+    ? PROJECTS_DATA 
+    : PROJECTS_DATA.filter(project => project.category === filter);
   
   return (
     <ProjectsSection id="projects">
@@ -346,35 +287,41 @@ const Projects: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 layout
               >
-                <ProjectImage>
-                  <img src={project.image} alt={project.title} />
-                  <ProjectOverlay>
-                    <ProjectCategory>{project.category}</ProjectCategory>
-                  </ProjectOverlay>
-                </ProjectImage>
+                {project.image && (
+                  <ProjectImage>
+                    <img src={project.image} alt={project.title || 'Project'} />
+                    <ProjectOverlay>
+                      {project.category && <ProjectCategory>{project.category}</ProjectCategory>}
+                    </ProjectOverlay>
+                  </ProjectImage>
+                )}
                 
                 <ProjectContent>
-                  <ProjectTitle>{project.title}</ProjectTitle>
-                  <ProjectDescription>{project.description}</ProjectDescription>
+                  {project.title && <ProjectTitle>{project.title}</ProjectTitle>}
+                  {project.description && <ProjectDescription>{project.description}</ProjectDescription>}
                   
-                  <TechStack>
-                    {project.techStack.map((tech, index) => (
-                      <TechItem key={index}>{tech}</TechItem>
-                    ))}
-                  </TechStack>
+                  {project.technologies && project.technologies.length > 0 && (
+                    <TechStack>
+                      {project.technologies.map((tech, index) => (
+                        <TechItem key={index}>{tech}</TechItem>
+                      ))}
+                    </TechStack>
+                  )}
                   
-                  <ProjectLinks>
-                    {project.githubLink && (
-                      <ProjectLink href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                        {FiGithub({})} Code
-                      </ProjectLink>
-                    )}
-                    {project.liveLink && (
-                      <ProjectLink href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                        {FiExternalLink({})} Live Demo
-                      </ProjectLink>
-                    )}
-                  </ProjectLinks>
+                  {(project.githubLink || project.liveLink) && (
+                    <ProjectLinks>
+                      {project.githubLink && (
+                        <ProjectLink href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                          {FiGithub({})} Code
+                        </ProjectLink>
+                      )}
+                      {project.liveLink && (
+                        <ProjectLink href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                          {FiExternalLink({})} Live Demo
+                        </ProjectLink>
+                      )}
+                    </ProjectLinks>
+                  )}
                 </ProjectContent>
               </ProjectCard>
             ))}

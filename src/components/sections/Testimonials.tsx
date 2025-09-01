@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { TESTIMONIALS_DATA } from '../../constants/testimonialsInfo';
 
 const STAR_ARRAY = Array(5).fill(null);
 
@@ -205,39 +206,12 @@ interface Testimonial {
 const Testimonials: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      content: "Aparna is an exceptional developer who delivered our e-commerce platform ahead of schedule. Her attention to detail and problem-solving skills are impressive. The website is not only visually stunning but also performs flawlessly across all devices.",
-      author: "Rahul Sharma",
-      title: "CEO, TechRetail Solutions",
-      avatar: "/avatar1.svg",
-      rating: 5
-    },
-    {
-      id: 2,
-      content: "Working with Aparna was a pleasure. She understood our requirements perfectly and translated them into a beautiful, functional website. Her communication was clear throughout the project, and she was always open to feedback and quick to implement changes.",
-      author: "Priya Patel",
-      title: "Marketing Director, CreativeMinds",
-      avatar: "/avatar2.svg",
-      rating: 5
-    },
-    {
-      id: 3,
-      content: "Aparna's technical expertise is outstanding. She revamped our outdated web application into a modern, responsive platform. Her code is clean, well-documented, and easy to maintain. I highly recommend her for any challenging web development project.",
-      author: "Vikram Mehta",
-      title: "CTO, InnovateX",
-      avatar: "/avatar3.svg",
-      rating: 5
-    }
-  ];
-  
   const nextSlide = () => {
-    setCurrentSlide(prev => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    setCurrentSlide(prev => (prev === TESTIMONIALS_DATA.length - 1 ? 0 : prev + 1));
   };
   
   const prevSlide = () => {
-    setCurrentSlide(prev => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    setCurrentSlide(prev => (prev === 0 ? TESTIMONIALS_DATA.length - 1 : prev - 1));
   };
   
   const goToSlide = (index: number) => {
@@ -263,39 +237,47 @@ const Testimonials: React.FC = () => {
           
           <TestimonialSlider>
             <TestimonialTrack currentSlide={currentSlide}>
-              {testimonials.map((testimonial) => (
+              {TESTIMONIALS_DATA.map((testimonial) => (
                 <TestimonialSlide key={testimonial.id}>
                   <TestimonialCard
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <TestimonialContent>
-                      {testimonial.content}
-                    </TestimonialContent>
+                    {testimonial.content && (
+                      <TestimonialContent>
+                        {testimonial.content}
+                      </TestimonialContent>
+                    )}
                     
-                    <RatingStars>
-                      {STAR_ARRAY.map((_, i) => (
-                        <span key={i} style={{ color: i < testimonial.rating ? '#FFD700' : '#ccc' }}>★</span>
-                      ))}
-                    </RatingStars>
+                    {testimonial.rating && (
+                      <RatingStars>
+                        {STAR_ARRAY.map((_, i) => (
+                          <span key={i} style={{ color: i < testimonial.rating ? '#FFD700' : '#ccc' }}>★</span>
+                        ))}
+                      </RatingStars>
+                    )}
                     
-                    <TestimonialAuthor>
-                      <AuthorAvatar>
-                        <img 
-                          src={process.env.PUBLIC_URL + testimonial.avatar.replace('/testimonial', '/avatar')} 
-                          alt={testimonial.author}
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = 'https://via.placeholder.com/60x60/6c63ff/ffffff?text=' + testimonial.author.charAt(0);
-                          }}
-                        />
-                      </AuthorAvatar>
-                      <AuthorInfo>
-                        <AuthorName>{testimonial.author}</AuthorName>
-                        <AuthorTitle>{testimonial.title}</AuthorTitle>
-                      </AuthorInfo>
-                    </TestimonialAuthor>
+                    {(testimonial.author || testimonial.title || testimonial.avatar) && (
+                      <TestimonialAuthor>
+                        {testimonial.avatar && (
+                          <AuthorAvatar>
+                            <img 
+                              src={process.env.PUBLIC_URL + testimonial.avatar.replace('/testimonial', '/avatar')} 
+                              alt={testimonial.author || 'Author'}
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = 'https://via.placeholder.com/60x60/6c63ff/ffffff?text=' + (testimonial.author ? testimonial.author.charAt(0) : 'A');
+                              }}
+                            />
+                          </AuthorAvatar>
+                        )}
+                        <AuthorInfo>
+                          {testimonial.author && <AuthorName>{testimonial.author}</AuthorName>}
+                          {testimonial.title && <AuthorTitle>{testimonial.title}</AuthorTitle>}
+                        </AuthorInfo>
+                      </TestimonialAuthor>
+                    )}
                   </TestimonialCard>
                 </TestimonialSlide>
               ))}
@@ -311,7 +293,7 @@ const Testimonials: React.FC = () => {
           </NavigationButton>
           
           <IndicatorsContainer>
-            {testimonials.map((_, index) => (
+            {TESTIMONIALS_DATA.map((_, index) => (
               <Indicator 
                 key={index} 
                 active={currentSlide === index}

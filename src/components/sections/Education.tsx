@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiBookOpen, FiCalendar, FiMapPin, FiAward } from 'react-icons/fi';
+import { EDUCATION_DATA } from '../../constants/educationInfo';
 
 const EducationSection = styled.section`
   background-color: var(--card-bg);
@@ -184,47 +185,6 @@ const AchievementItem = styled.li`
 `;
 
 const Education: React.FC = () => {
-  const educationData = [
-    {
-      id: 1,
-      institute: 'Indian Institute of Technology',
-      degree: 'Master of Technology in Computer Science',
-      period: '2016 - 2018',
-      location: 'Delhi, India',
-      description: 'Specialized in Artificial Intelligence and Machine Learning with a focus on Natural Language Processing.',
-      achievements: [
-        'Graduated with distinction (8.9/10 CGPA)',
-        'Published a research paper on "Efficient Natural Language Processing Techniques for Low-Resource Languages"',
-        'Recipient of the Academic Excellence Scholarship for two consecutive years'
-      ]
-    },
-    {
-      id: 2,
-      institute: 'University of Engineering',
-      degree: 'Bachelor of Technology in Information Technology',
-      period: '2012 - 2016',
-      location: 'Mumbai, India',
-      description: 'Comprehensive study of computer science fundamentals, software engineering principles, and web technologies.',
-      achievements: [
-        'Graduated with First Class Honors (8.5/10 CGPA)',
-        'Led the university web development team for the annual tech fest',
-        'Won first place in the National Coding Competition 2015'
-      ]
-    },
-    {
-      id: 3,
-      institute: 'Advanced Certification Academy',
-      degree: 'Professional Certification in Full Stack Development',
-      period: '2019',
-      location: 'Online',
-      description: 'Intensive program covering modern web development technologies and best practices.',
-      achievements: [
-        'Completed with 95% score',
-        'Developed a full-stack e-commerce application as capstone project',
-        'Recognized for best implementation of microservices architecture'
-      ]
-    }
-  ];
   
   return (
     <EducationSection id="education">
@@ -235,7 +195,7 @@ const Education: React.FC = () => {
         </SectionSubtitle>
         
         <EducationGrid>
-          {educationData.map((edu, index) => (
+          {EDUCATION_DATA.map((edu, index) => (
             <EducationCard
               key={edu.id}
               initial={{ opacity: 0, y: 30 }}
@@ -247,25 +207,36 @@ const Education: React.FC = () => {
                 <InstituteLogo>
                   {FiBookOpen({})}
                 </InstituteLogo>
-                <InstituteName>{edu.institute}</InstituteName>
-                <DegreeName>{edu.degree}</DegreeName>
+                {edu.institution && <InstituteName>{edu.institution}</InstituteName>}
+                {(edu.degree || edu.field) && (
+                  <DegreeName>
+                    {edu.degree}{edu.degree && edu.field && ' - '}{edu.field}
+                  </DegreeName>
+                )}
               </EducationHeader>
               
               <EducationContent>
                 <EducationDetails>
-                  <EducationDetailItem>
-                    {FiCalendar({})}
-                    <span>{edu.period}</span>
-                  </EducationDetailItem>
-                  <EducationDetailItem>
-                    {FiMapPin({})}
-                    <span>{edu.location}</span>
-                  </EducationDetailItem>
+                  {edu.period && (
+                    <EducationDetailItem>
+                      {FiCalendar({})}
+                      <span>{edu.period}</span>
+                    </EducationDetailItem>
+                  )}
+                  {edu.location && (
+                    <EducationDetailItem>
+                      {FiMapPin({})}
+                      <span>{edu.location}</span>
+                    </EducationDetailItem>
+                  )}
                 </EducationDetails>
                 
-                <EducationDescription>
-                  {edu.description}
-                </EducationDescription>
+                {edu.grade && (
+                  <EducationDetailItem>
+                    {FiAward({})}
+                    <span><strong>Grade:</strong> {edu.grade}</span>
+                  </EducationDetailItem>
+                )}
                 
                 <div>
                   <EducationDetailItem>

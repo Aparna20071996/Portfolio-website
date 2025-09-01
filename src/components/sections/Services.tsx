@@ -200,16 +200,20 @@ const Services: React.FC = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <ServiceIcon>
-                {service.icon({})}
-              </ServiceIcon>
-              <ServiceTitle>{service.title}</ServiceTitle>
-              <ServiceDescription>{service.description}</ServiceDescription>
-              <ServiceFeatures>
-                {service.features.map((feature, idx) => (
-                  <ServiceFeature key={idx}>{feature}</ServiceFeature>
-                ))}
-              </ServiceFeatures>
+              {service.icon && (
+                <ServiceIcon>
+                  {service.icon({})}
+                </ServiceIcon>
+              )}
+              {service.title && <ServiceTitle>{service.title}</ServiceTitle>}
+              {service.description && <ServiceDescription>{service.description}</ServiceDescription>}
+              {service.features && service.features.length > 0 && (
+                <ServiceFeatures>
+                  {service.features.map((feature, idx) => (
+                    <ServiceFeature key={idx}>{feature}</ServiceFeature>
+                  ))}
+                </ServiceFeatures>
+              )}
             </ServiceCard>
           ))}
         </ServicesGrid>

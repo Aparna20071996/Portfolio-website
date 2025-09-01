@@ -1,12 +1,12 @@
 export const EDUCATION_DATA = [
   {
     id: 1,
-    institution: 'Indian Institute of Technology (IIT)',
+    institution: 'National Institute of Technology (NIT) Surathkal',
     degree: 'Master of Technology',
-    field: 'Computer Science and Engineering',
-    period: '2016 - 2018',
-    location: 'Pune, India',
-    grade: 'CGPA: 8.7/10',
+    field: 'Process Metallurgy',
+    period: '2020 - 2022',
+    location: 'Mangaluru, Karnataka, India',
+    grade: '',
     achievements: [
       'Specialized in Software Engineering and Web Technologies',
       'Published research paper on "Modern Web Development Frameworks"',
@@ -15,12 +15,12 @@ export const EDUCATION_DATA = [
   },
   {
     id: 2,
-    institution: 'University of Pune',
+    institution: 'Jabalpur Engineering College',
     degree: 'Bachelor of Engineering',
-    field: 'Information Technology',
-    period: '2012 - 2016',
-    location: 'Pune, India',
-    grade: 'First Class with Distinction (78%)',
+    field: 'Industrial and Production Engineering',
+    period: '2014 - 2018',
+    location: 'Jabalpur, Madhya Pradesh, India',
+    grade: '',
     achievements: [
       'Graduated with First Class with Distinction',
       'Winner of inter-college programming competition',
@@ -29,12 +29,12 @@ export const EDUCATION_DATA = [
   },
   {
     id: 3,
-    institution: 'St. Xavier\'s College',
+    institution: 'Kendriya Vidyalaya',
     degree: 'Higher Secondary Certificate (HSC)',
     field: 'Science (PCM with Computer Science)',
-    period: '2010 - 2012',
-    location: 'Pune, India',
-    grade: '92%',
+    period: '2013- 2014',
+    location: 'Jabalpur, Madhya Pradesh, India',
+    grade: '',
     achievements: [
       'Scored 92% in HSC examinations',
       'Participated in state-level science exhibitions',

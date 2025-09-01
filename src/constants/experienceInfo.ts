@@ -1,7 +1,7 @@
 export const EXPERIENCE_DATA = [
   {
     id: 1,
-    company: 'Tech Solutions Inc.',
+    company: 'Mphasis',
     position: 'Senior Software Developer',
     period: '2022 - Present',
     location: 'Pune, India',
